@@ -38,7 +38,7 @@ return Container();
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: (){
-          ConuterIncrementEvent();
+          counterBloc.add(ConuterIncrementEvent());
         },
         ),
     );
