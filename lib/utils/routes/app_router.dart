@@ -18,7 +18,7 @@ class AppRouter {
     GoRoute(
       path: AppPages.counterScreen,
       name: 'counter',
-      pageBuilder: (context, state) =>const MaterialPage(child: CounterScreen(),) ,),
+      pageBuilder: (context, state) => MaterialPage(child: CounterScreen(),) ,),
       /// Post Screen 
     GoRoute(
       path: AppPages.postScreen,
