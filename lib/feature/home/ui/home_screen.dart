@@ -9,42 +9,46 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(
-      title: const Text("Home"),
-    ),
-    body: ListView(
-      physics: const RangeMaintainingScrollPhysics(),
-      padding: const EdgeInsets.all(defaultPadding),
-      children: [
-        /// Counter
-        InkWell(
-          onTap: (){
-            GoRouter.of(context).pushNamed(AppPages.counterScreen);
-          },
-          child: Container(
-            margin: const EdgeInsets.only(bottom: defaultPadding),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(defaultRadius),
-              color: Colors.teal.shade200,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Home"),
+      ),
+      body: ListView(
+        physics: const RangeMaintainingScrollPhysics(),
+        padding: const EdgeInsets.all(defaultPadding),
+        children: [
+          /// Counter
+          InkWell(
+            onTap: () {
+              GoRouter.of(context).pushNamed('counter');
+            },
+            child: Container(
+              padding: const EdgeInsets.all(defaultPadding),
+              margin: const EdgeInsets.only(bottom: defaultPadding),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(defaultRadius),
+                color: Colors.teal.shade200,
+              ),
+              child: const Text("Counter"),
             ),
           ),
-        ),
-     
-        /// POST
-        InkWell(
-          onTap: (){
-            GoRouter.of(context).pushNamed(AppPages.postScreen);
-          },
-          child: Container(
-            margin: const EdgeInsets.only(bottom: defaultPadding),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(defaultRadius),
-              color: Colors.teal.shade200,
+
+          /// POST
+          InkWell(
+            onTap: () {
+              GoRouter.of(context).pushNamed(AppPages.postScreen);
+            },
+            child: Container(
+              padding: const EdgeInsets.all(defaultPadding),
+              margin: const EdgeInsets.only(bottom: defaultPadding),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(defaultRadius),
+                color: Colors.teal.shade200,
+              ),
+              child: const Text("Post"),
             ),
           ),
-        ),
-     
-      ],
+        ],
       ),
     );
   }

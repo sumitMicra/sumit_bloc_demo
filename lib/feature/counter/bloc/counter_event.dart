@@ -3,4 +3,4 @@ part of 'counter_bloc.dart';
 @immutable
 sealed class CounterEvent {}
 
-class ConuterIncrementEvent extends CounterEvent{}
+class ConuterIncrementEvent extends CounterEvent {}

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CounterScreen extends StatelessWidget {
-   CounterScreen({super.key});
+  CounterScreen({super.key});
 
- final  CounterBloc counterBloc = CounterBloc();
+  final CounterBloc counterBloc = CounterBloc();
 
   @override
   Widget build(BuildContext context) {
@@ -13,34 +13,36 @@ class CounterScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Counter"),
       ),
-
       body: BlocBuilder(
         bloc: counterBloc,
         builder: (context, state) {
- switch(state.runtimeType){
-  case CounterIncrementState :
-    final CounterIncrementState incrementState = state as CounterIncrementState ;
+          switch (state.runtimeType) {
+            case CounterIncrementState:
+              final CounterIncrementState incrementState = state as CounterIncrementState;
 
-        return  Center(
-        child: Text(
-        incrementState.value.toString(),
-        style: Theme.of(context).textTheme.titleLarge,
-        ),
-      );
+              return Center(
+                child: Text(
+                  incrementState.value.toString(),
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+              );
 
-default:
-return Container();
-
- }
-      },
+            default:
+              return Center(
+                child: Text(
+                  0.toString(),
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+              );
+          }
+        },
       ),
-
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        onPressed: (){
+        onPressed: () {
           counterBloc.add(ConuterIncrementEvent());
         },
-        ),
+      ),
     );
   }
 }

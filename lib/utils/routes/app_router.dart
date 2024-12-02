@@ -7,22 +7,34 @@ import 'package:go_router/go_router.dart';
 
 class AppRouter {
   GoRouter router = GoRouter(
-
     routes: [
-    /// Home Screen
-    GoRoute(
-      path: '/',
-      name: 'home',
-      pageBuilder: (context, state) =>const MaterialPage(child: HomeScreen(),) ,),
+      /// Home Screen
+      GoRoute(
+        path: '/',
+        name: 'home',
+        pageBuilder: (context, state) => const MaterialPage(
+          child: HomeScreen(),
+        ),
+      ),
+
       /// Counter Screen
-    GoRoute(
-      path: AppPages.counterScreen,
-      name: 'counter',
-      pageBuilder: (context, state) => MaterialPage(child: CounterScreen(),) ,),
-      /// Post Screen 
-    GoRoute(
-      path: AppPages.postScreen,
-      name: 'post',
-      pageBuilder: (context, state) =>const MaterialPage(child: PostScreen(),) ,),
-  ],) ;
+      GoRoute(
+        path: AppPages.counterScreen,
+        name: 'counter',
+        builder: (context, state) => CounterScreen(),
+        // pageBuilder: (context, state) => MaterialPage(
+        //   child: CounterScreen(),
+        // ),
+      ),
+
+      /// Post Screen
+      GoRoute(
+        path: AppPages.postScreen,
+        name: 'post',
+        pageBuilder: (context, state) => const MaterialPage(
+          child: PostScreen(),
+        ),
+      ),
+    ],
+  );
 }
