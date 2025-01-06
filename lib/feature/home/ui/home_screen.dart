@@ -1,4 +1,3 @@
-import 'package:bloc_demo/utils/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -18,34 +17,43 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(defaultPadding),
         children: [
           /// Counter
-          InkWell(
-            onTap: () {
-              GoRouter.of(context).pushNamed('counter');
-            },
-            child: Container(
-              padding: const EdgeInsets.all(defaultPadding),
-              margin: const EdgeInsets.only(bottom: defaultPadding),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(defaultRadius),
-                color: Colors.teal.shade200,
+          Padding(
+            padding: const EdgeInsets.only(bottom: defaultPadding),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(defaultRadius),
+              onTap: () {
+                GoRouter.of(context).pushNamed('counter');
+              },
+              child: Container(
+                padding: const EdgeInsets.all(defaultPadding),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(defaultRadius),
+                  color: Colors.teal.shade200,
+                ),
+                child: Text(
+                  "Counter",
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
               ),
-              child: const Text("Counter"),
             ),
           ),
 
           /// POST
           InkWell(
+            borderRadius: BorderRadius.circular(defaultRadius),
             onTap: () {
-              GoRouter.of(context).pushNamed(AppPages.postScreen);
+              GoRouter.of(context).pushNamed('post');
             },
             child: Container(
               padding: const EdgeInsets.all(defaultPadding),
-              margin: const EdgeInsets.only(bottom: defaultPadding),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(defaultRadius),
                 color: Colors.teal.shade200,
               ),
-              child: const Text("Post"),
+              child: Text(
+                "Post",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
             ),
           ),
         ],

@@ -6,35 +6,33 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouter {
-  GoRouter router = GoRouter(
-    routes: [
-      /// Home Screen
-      GoRoute(
-        path: '/',
-        name: 'home',
-        pageBuilder: (context, state) => const MaterialPage(
-          child: HomeScreen(),
+  static GoRouter returnRouter(bool isAuth) {
+    GoRouter router = GoRouter(
+      routes: [
+        /// Home Screen
+        GoRoute(
+          name: 'home',
+          path: '/',
+          pageBuilder: (context, state) => const MaterialPage(
+            child: HomeScreen(),
+          ),
         ),
-      ),
 
-      /// Counter Screen
-      GoRoute(
-        path: AppPages.counterScreen,
-        name: 'counter',
-        builder: (context, state) => CounterScreen(),
-        // pageBuilder: (context, state) => MaterialPage(
-        //   child: CounterScreen(),
-        // ),
-      ),
-
-      /// Post Screen
-      GoRoute(
-        path: AppPages.postScreen,
-        name: 'post',
-        pageBuilder: (context, state) => const MaterialPage(
-          child: PostScreen(),
+        /// Counter Screen
+        GoRoute(
+          name: AppPages.counterScreen,
+          path: '/counter',
+          builder: (context, state) => CounterScreen(),
         ),
-      ),
-    ],
-  );
+
+        /// Post Screen
+        GoRoute(
+          name: AppPages.postScreen,
+          path: '/post',
+          builder: (context, state) => const PostScreen(),
+        ),
+      ],
+    );
+    return router;
+  }
 }
